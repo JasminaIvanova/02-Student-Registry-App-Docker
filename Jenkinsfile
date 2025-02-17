@@ -8,15 +8,9 @@ pipeline {
             }
         }
 
-        stage('Start Application') {
-            steps {
-                bat 'npm start &'
-            }
-        }
-
         stage('Run Tests') {
             steps {
-                bat 'npm test'
+                bat 'npm run test'
             }
         }
     }
