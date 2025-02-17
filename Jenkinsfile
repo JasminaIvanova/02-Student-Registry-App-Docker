@@ -2,15 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout Code') {
+        stage('Checkout') {
             steps {
-                checkout scm
-            }
-        }
-
-        stage('Set up Node.js') {
-            steps {
-                sh 'node -v || curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && apt-get install -y nodejs'
+                git url: 'https://github.com/JasminaIvanova/02-Student-Registry-App-Docker'
             }
         }
 
@@ -22,7 +16,7 @@ pipeline {
 
         stage('Start Application') {
             steps {
-                sh 'npm start'
+                sh 'npm start &'
             }
         }
 
